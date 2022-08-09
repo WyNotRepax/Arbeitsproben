@@ -5,7 +5,7 @@
 * Nutzung einer Relationalen Datenbank mit Hibernate als ORM
 * Entstanden im Rahmen einer Hausarbeit an der Fachhochschule Osnabrück
 * Entstanden in Partnerarbeit mit einem anderen Studenten
-* Vollständige Dokumentation unter [hier](./SWA-SoSe21-PA-14-RoomPlanner/docs/Room%20Planer.pdf)
+* Vollständige Dokumentation unter [hier](./SWA-SoSe21-PA-14-RoomPlanner/docs/SWA_Projekt.docx)
 
 ## room-planner-wa
 * Angular + Ionic Projekt
