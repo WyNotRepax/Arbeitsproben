@@ -1,0 +1,7 @@
+{
+  "name": "room-planner",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

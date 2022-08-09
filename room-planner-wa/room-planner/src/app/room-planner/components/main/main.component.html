@@ -1,0 +1,7 @@
+<svg #svg style="background-color: gray;">
+    <g #mainGroup>
+        <rect #roomRect class="room" rx="2" rx="2" [style.width]="(service.plan | async)?.dimensions.width" [style.height]="(service.plan | async)?.dimensions.height"></rect>
+        <rect *ngFor='let furniture of (service.plan | async)?.furniture' appFurniture [furniture]="furniture" [scale]="scale"
+            [planId]="(service.plan | async)?.id"></rect>
+    </g>
+</svg>

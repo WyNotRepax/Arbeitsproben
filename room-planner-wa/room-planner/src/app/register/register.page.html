@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form  [formGroup]="form"  (ngSubmit)="register()">
+    <ion-grid>
+      <ion-row  justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Account erstellen</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input  type="text" formControlName="username" placeholder="Name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="confirm" type="password" placeholder="Password again"></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button  type="submit" expand="block" color="primary" [disabled]="!form.valid">Register</ion-button>
+          </div>
+          <div padding>
+            <ion-button routerLink='/login' type="cancel" size="large" color="danger"  expand="block">Cancel</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

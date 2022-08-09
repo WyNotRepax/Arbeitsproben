@@ -1,0 +1,61 @@
+package de.hsos.roomplanner;
+
+import io.quarkus.test.common.http.TestHTTPEndpoint;
+import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.ContentType;
+
+import org.junit.jupiter.api.Test;
+import de.hsos.roomplanner.user.boundary.rest.UserResource;
+import de.hsos.roomplanner.user.control.UserService;
+import de.hsos.roomplanner.user.control.dto.UserDto;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import javax.inject.Inject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+/**
+ * @author Christoph Freimuth
+ */
+@QuarkusTest
+@TestHTTPEndpoint(UserResource.class)
+public class UserResourceTest {
+
+    @Inject
+    UserService userService;
+
+    @Inject
+    ObjectMapper objectMapper;
+
+    @Test
+    public void testPostUser() {
+
+        String testName = "testName8";
+        String testPassword = "testPassword";
+
+        UserDto userDto = new UserDto();
+
+        userDto.setUsername(testName);
+        userDto.setPassword(testPassword);
+
+        String bodyString;
+        try {
+            bodyString = objectMapper.writeValueAsString(userDto);
+        } catch (JsonProcessingException e) {
+            fail(e);
+            return;
+        }
+
+        given().contentType(ContentType.JSON)
+                .body(bodyString)
+                .when()
+                .post()
+                .then()
+                .statusCode(201);
+
+    }
+
+}

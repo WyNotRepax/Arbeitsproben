@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Plan erstellen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="closeModal()">
+    <ion-item>
+      <ion-label position="floating">Name:</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <div formGroupName="dimensions">
+      <ion-item>
+        <ion-label position="floating">Width:</ion-label>
+        <ion-input type="number" formControlName="width"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Height:</ion-label>
+        <ion-input type="number" formControlName="height"></ion-input>
+      </ion-item>
+    </div>
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!form.valid">Add</ion-button>
+    <ion-button expand="block" color="danger" (click)="cancelModal()">Cancel</ion-button>
+  </form>
+</ion-content>

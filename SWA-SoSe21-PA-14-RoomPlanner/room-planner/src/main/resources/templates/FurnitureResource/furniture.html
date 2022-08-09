@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Christoph Freimuth">
+    <title>{furniture.getName()}</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
+        integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="d-flex justify-content-center align-items-center flex-column" style="height: 100vh">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <form action="./{furniture.id}" method="POST" id="edit_furniture_{furniture.getId()}">
+                        <div class="form-group">
+                            <label for="furnitureName"><strong>Name</strong></label>
+                            <input type="text" class="form-control" id="furnitureName" value="{furniture.getName()}" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="furnitureWidth"><strong>Width</strong></label>
+                            <input type="number" step="0.01" class="form-control" id="furnitureWidth"
+                                value="{furniture.getDimensions().getWidth()}" name="dimensionWidth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="furnitureHeight"><strong>Height</strong></label>
+                            <input type="number" step="0.01" class="form-control" id="furnitureHeight"
+                                value="{furniture.getDimensions().getHeight()}" name="dimensionHeight" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="furnitureColor"><strong>Color</strong></label>
+                            <input type="color" class="form-control" id="furnitureColor" value="{furniture.getColor()}" name="color" required>
+                        </div>
+                    </form>
+                    <form action="./{furniture.getId()}" method="POST" id="delete_furniture_{furniture.getId()}"></form>
+                    <div class="d-flex mt-3 mb-2">
+                        <input type="hidden" name="action" value="UPDATE" form="edit_furniture_{furniture.getId()}">
+                        <button type="submit" class="btn btn-primary me-2" form="edit_furniture_{furniture.getId()}"><i class="bi bi-save"></i> Save</button>
+                        <input type="hidden" name="action" value="DELETE" form="delete_furniture_{furniture.getId()}">
+                        <button type="submit" class="btn btn-danger" form="delete_furniture_{furniture.getId()}"><i class="bi bi-trash"></i> Delete</button>
+                    </div>
+                    <a href="./">All Furniture</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
