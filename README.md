@@ -10,6 +10,7 @@
 ## room-planner-wa
 * Angular + Ionic Projekt
 * Entstanden im Rahmen einer Hausarbeit an der Fachhochschule Osnabrück
+* Entstanden in Partnerarbeit mit einem anderen Studenten
 * Frontend für SWA-SoSe21-PA-14-RoomPlanner
 
 ## maze_generator
